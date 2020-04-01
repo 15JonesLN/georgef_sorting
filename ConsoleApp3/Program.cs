@@ -36,7 +36,7 @@ namespace SamplePrograms
             int i, j;
             int temp = 0;
 
-            unsortedList.CopyTo(sortedList, 10);
+            unsortedList.CopyTo(sortedList, 0);
             foreach (int num in sortedList)
                 Console.WriteLine(num);
 
