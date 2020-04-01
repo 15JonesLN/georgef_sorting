@@ -37,12 +37,10 @@ namespace SamplePrograms
             int temp = 0;
 
             unsortedList.CopyTo(sortedList, 0);
-            foreach (int num in sortedList)
-                Console.WriteLine(num);
 
             for (i = 0; i < sortedList.Length; i++)
             {
-                for (j = 0; j <= sortedList.Length-1-i; i++)
+                for (j = 0; j < sortedList.Length-1-i; j++)
                 {
                     if (sortedList[j] > sortedList[j+1])
                     {
@@ -52,6 +50,9 @@ namespace SamplePrograms
                     }
                 }
             }
+
+            foreach (int num in sortedList)
+                Console.WriteLine(num);
 
             /* I cannot get this to work and James and I are not sure why*/
 
