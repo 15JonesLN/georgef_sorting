@@ -40,9 +40,9 @@ namespace SamplePrograms
             foreach (int num in sortedList)
                 Console.WriteLine(num);
 
-            for (i = 0; i < 10; i++)
+            for (i = 0; i < sortedList.Length; i++)
             {
-                for (j = 0; j <= 19; i++)
+                for (j = 0; j <= sortedList.Length-1-i; i++)
                 {
                     if (sortedList[j] > sortedList[j + 1])
                     {
