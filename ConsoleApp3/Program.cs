@@ -32,8 +32,28 @@ namespace SamplePrograms
 
         /* A void function is a procedure- it does not return a value */
         private static void bubbleSort()
+
         {
             int i, j;
+            int temp = 0;
+            for (i = 0; i < 10; i++)
+            {
+                for (j = 0; j <= 19; i++)
+                {
+                    if (unsortedList[j] > unsortedList[j + 1])
+                    {
+                        unsortedList[j + 1] = temp;
+                        unsortedList[j] = unsortedList[j + 1];
+                        temp = unsortedList[j];
+                        unsortedList.CopyTo(sortedList, 10);
+                        foreach (int num in sortedList)
+                            Console.WriteLine(num);
+
+                    }
+                }
+            }
+
+            /* I cannot get this to work and James and I are not sure why*/
 
             /* Copy unsortedList into sortedList
              * no, you can't just do sortedList=unsortedList!
