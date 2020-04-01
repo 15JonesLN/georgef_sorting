@@ -44,11 +44,11 @@ namespace SamplePrograms
             {
                 for (j = 0; j <= sortedList.Length-1-i; i++)
                 {
-                    if (sortedList[j] > sortedList[j + 1])
+                    if (sortedList[j] > sortedList[j+1])
                     {
-                        sortedList[j + 1] = temp;
-                        sortedList[j] = sortedList[j + 1];
-                        temp = sortedList[j];
+                        temp = sortedList[j+1];
+                        sortedList[j+1] = sortedList[j];
+                        sortedList[j] = temp;
                     }
                 }
             }
