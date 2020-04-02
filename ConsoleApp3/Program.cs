@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace SamplePrograms
 {
@@ -14,7 +14,6 @@ namespace SamplePrograms
         static void Main(string[] args)
         {
             int i;
-            
             unsortedList = new int[10];
             sortedList = new int[10];
 
@@ -26,6 +25,8 @@ namespace SamplePrograms
                 Console.WriteLine(num);
 
             bubbleSort();
+            foreach (int num in unsortedList)
+                Console.WriteLine(num);
 
             Console.ReadKey();
         }
@@ -33,39 +34,25 @@ namespace SamplePrograms
         /* A void function is a procedure- it does not return a value */
         private static void bubbleSort()
         {
-            int i, j;
-            int temp = 0;
-
-            unsortedList.CopyTo(sortedList, 0);
-
-            for (i = 0; i < sortedList.Length; i++)
+            while (true) // Looping the bubble sort.
             {
-                for (j = 0; j < sortedList.Length-1-i; j++)
+                bool swapped = false; // 
+                for (int i = 0; i < unsortedList.Length - 1; i++) // Getting the length of the list for the sort. I is the current position in the list (0-9, not 1-10)
                 {
-                    if (sortedList[j] > sortedList[j+1])
+                    if (unsortedList[i] > unsortedList[i + 1]) // Comparing the adjacent values.
                     {
-                        temp = sortedList[j+1];
-                        sortedList[j+1] = sortedList[j];
-                        sortedList[j] = temp;
+                        swapped = true; // If one or more values in the list have been swapped around, this will be true and the loop will not be broken.
+                        var tempvar = unsortedList[i]; // Moves the larger number into a temporary variable to be swapped around.
+                        unsortedList[i] = unsortedList[i + 1]; // The smaller variable is overwritten by the larger one.
+                        unsortedList[i + 1] = tempvar; // The larger variable is overwritten by the smaller variable.
                     }
                 }
+                if (!swapped) // NOT gate, if swapped is false
+                {
+                    break; // Breaks the loop, ending the bubble sort.
+                }
+
             }
-
-            foreach (int num in sortedList)
-                Console.WriteLine(num);
-
-            /* I cannot get this to work and James and I are not sure why*/
-
-            /* Copy unsortedList into sortedList
-             * no, you can't just do sortedList=unsortedList!
-             * https://www.telerik.com/blogs/copying-and-cloning-arrays-in-c
-             */
-
-            /* Iterate over the list, you'll need a couple of counting variables.
-             * Above, i and j are declared for you.
-             * You should know how to do a bubble sort by now, right? :)
-             */
         }
-
     }
 }
